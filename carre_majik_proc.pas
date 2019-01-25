@@ -39,8 +39,8 @@ begin
 end;
 	//================================ON REMPLIT LE TABLEAU================================//
 
-BEGIN
-	ini;
+PROCEDURE tab;
+begin
 	WHILE nb <>taille*taille DO //tant que le nombre ecrit n'est pas egal au carre de la taille, on:
 	begin
 		nb := nb+1; //incremente nb
@@ -60,5 +60,10 @@ BEGIN
 			j := prevj; //on stocke le nouveau j
 		end;
 	end;
+end;
+
+BEGIN
+	ini;
+	tab;
 	aff(T);
 END.
