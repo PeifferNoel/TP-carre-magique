@@ -11,13 +11,15 @@ VAR     T : TABLEAU[1..taille, 1..taille] DE ENTIER
 
 
 	//================================INITIALISATION DU TABLEAU ET DE LA POSITION================================//
-PROCEDURE ini
+
+PROCEDURE ini (i, j : ENTIER)
 	nb <- 0
 	i<-(taille div 2)
 	j<-(taille div 2)+1
 
 	//================================ON AFFICHE LE TABLEAU================================//
-PROCEDURE aff
+
+PROCEDURE aff (i, j : ENTIER)
 	POUR i DE 1 A taille FAIRE
 		POUR j DE 1 A taille FAIRE
 			ECRIRE('|')
@@ -37,14 +39,14 @@ DEBUT
 		j <- j+1 //incremente j (on va a droite)
 		SI j>taille ALORS j <- 1 //Si j depasse du tableau, on le remet a gauche
 
-		previ <- i//stocke i
-		i <- i-1//incremente i (on descend)
-		SI i<1 ALORS i <- taille//Si i depasse du tableau, on le remet en haut
+		previ <- i //stocke i
+		i <- i-1 //incremente i (on descend)
+		SI i<1 ALORS i <- taille //Si i depasse du tableau, on le remet en haut
 
 		SI T[i,j] <> 0 ALORS //Si la case est occupee
 		begin
 			i<-previ-2 //On remonte de deux par rapport à la position précédente
-			SI i<1 ALORS i <- taille+i//Si i depasse du tableau, on le remet en haut
+			SI i<1 ALORS i <- taille+i //Si i depasse du tableau, on le remet en haut
 			j <- prevj //on stocke le nouveau j
 		FINSI
 	FINTANTQUE
